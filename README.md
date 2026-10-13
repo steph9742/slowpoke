@@ -122,5 +122,6 @@ publiés ensemble :
 | **Catalogue** | cartographie du SI et conformité cyber |
 | **Assistants IA** | réponses sourcées sur le corpus de procédures, analyse de journaux |
 | **Astreintes** | planning et heures d'astreinte de l'équipe |
+| **Gestion de crise cyber** | conduite d'une crise d'origine cyber : main courante, décisions, communications, exercices |
 | **Arche** | réplique hors ligne et plan de reprise YunoHost + Docker |
-| **Bureautix Fleet** | parc de postes de travail NixOS durcis, multi-entités |
+| **Bureautix Fleet** | parc de postes de travail NixOS durcis, multi-entités — *expérimental, en cours* |
