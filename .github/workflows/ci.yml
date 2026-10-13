@@ -28,10 +28,28 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          # L'historique complet : sans lui, la plage à examiner n'est pas résoluble.
+          # L'historique complet : la plage d'une pull request doit être résoluble.
           fetch-depth: 0
 
-      - name: Recherche de secrets et d'adresses nominatives
-        uses: gitleaks/gitleaks-action@v2
+      # Le binaire plutôt que `gitleaks-action` : l'action calcule une plage
+      # `<commit>^..HEAD` qui n'existe pas quand le commit initial est dedans, et sort en
+      # erreur sans avoir rien scanné.
+      - name: Installer gitleaks
         env:
-          GITLEAKS_CONFIG: .gitleaks.toml
+          # Version épinglée : celle contre laquelle la configuration a été vérifiée.
+          VERSION: 8.30.1
+        run: |
+          curl -sSfL "https://github.com/gitleaks/gitleaks/releases/download/v${VERSION}/gitleaks_${VERSION}_linux_x64.tar.gz" \
+            | sudo tar -xz -C /usr/local/bin gitleaks
+          gitleaks version
+
+      - name: Arbre de travail
+        run: gitleaks dir . --config .gitleaks.toml --no-banner --redact
+
+      # Sur une pull request, l'arbre ne suffit pas : un secret ajouté puis retiré dans la
+      # même branche n'y figure plus, mais reste dans l'historique qu'on s'apprête à fusionner.
+      - name: Historique de la pull request
+        if: github.event_name == 'pull_request'
+        run: |
+          gitleaks git . --config .gitleaks.toml --no-banner --redact \
+            --log-opts="${{ github.event.pull_request.base.sha }}..HEAD"
