@@ -1,0 +1,51 @@
+# Détection de secrets et de données nominatives, en complément des règles standard.
+#
+# Un dépôt d'application d'incidents est exposé à deux fuites : une clé d'accès collée dans un
+# exemple, et une donnée nominative recopiée depuis un dossier réel. Les deux entrent dans
+# l'historique Git de façon quasi définitive.
+
+[extend]
+useDefault = true
+
+# Clés de compte de service (préfixe `sk_` suivi du corps base64url).
+[[rules]]
+id = "slowpoke-service-key"
+description = "Clé de compte de service Slowpoke"
+regex = '''sk_[A-Za-z0-9_-]{30,}'''
+keywords = ["sk_"]
+
+# Adresses nominatives (prenom.nom@…) des domaines de l'établissement.
+# ⚠️ À ADAPTER : la liste des domaines ci-dessous est un gabarit — remplacez-la par ceux de
+# votre établissement, sans quoi cette règle ne protège rien. Les adresses de service
+# (cyber@, rssi@…) ne correspondent pas : pas de point dans la partie locale.
+[[rules]]
+id = "adresse-nominative-etablissement"
+description = "Adresse nominative d'établissement dans le code ou la documentation"
+regex = '''[a-zA-Z][a-zA-Z-]{1,30}\.[a-zA-Z][a-zA-Z-]{1,30}[0-9]{0,3}@(edu\.)?(votre-etablissement|votre-domaine)\.(fr|org|com)'''
+
+  [rules.allowlist]
+  # Les personnages fictifs de la documentation et des jeux d'essai. Tout nouvel exemple doit
+  # réutiliser CES noms-là plutôt qu'allonger la liste.
+  regexes = [
+    '''jean\.dupont@''',
+    '''bernard\.voisin@''',
+    '''bernard\.vo[a-z]+sin@''',
+    '''claire\.fontaine@''',
+    '''hugo\.marchand@''',
+    '''marion\.bertin@''',
+  ]
+
+[allowlist]
+description = "Faux positifs assumés"
+paths = [
+  '''node_modules''',
+  '''\.output/''',
+  '''\.nuxt/''',
+  # Ce fichier lui-même : il contient les motifs qu'il interdit.
+  '''\.gitleaks\.toml''',
+]
+regexes = [
+  # Personnage fictif des exemples et des jeux d'essai.
+  '''jean\.dupont@''',
+  '''Jean\.Dupont@''',
+]

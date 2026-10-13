@@ -1,0 +1,17 @@
+node_modules
+.env
+.git
+.gitignore
+Dockerfile*
+.vscode
+README.md*
+# Sorties et caches de build : régénérés dans l'image.
+#
+# Les laisser entrer dans le contexte fait copier un build de la machine qui déploie, que
+# Nuxt peut réutiliser en partie — l'image mélange alors du code neuf et du code ancien,
+# et le symptôme ressemble à un bug applicatif plutôt qu'à un défaut de build.
+.output
+.nuxt
+dist
+.turbo
+*.log

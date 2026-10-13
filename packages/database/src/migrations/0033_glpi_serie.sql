@@ -1,0 +1,1 @@
+ALTER TABLE "glpi_machine" ADD COLUMN "numero_serie" text;

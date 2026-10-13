@@ -1,0 +1,28 @@
+{
+  "name": "@slowpoke/auth",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "generate": "bunx auth@latest generate --config ./src/index.ts -y --output ../database/src/schemas/auth-schema.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@types/bun": "1.4.0",
+    "@slowpoke/eslint-config": "*",
+    "eslint": "^10.0.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "better-auth": "1.6.11",
+    "@slowpoke/database": "*",
+    "@slowpoke/better-auth-plugins": "*"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": "./src/*"
+  }
+}

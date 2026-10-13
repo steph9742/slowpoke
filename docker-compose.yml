@@ -1,0 +1,106 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: apps/app/Dockerfile
+    restart: unless-stopped
+    environment:
+      - PORT=3000
+      - HOST=0.0.0.0
+    env_file: ".env"
+    depends_on:
+      server:
+        condition: service_healthy
+    networks:
+      - slowpoke-network
+    # Résolution forcée, si le DNS du réseau ne répond pas pour le fournisseur
+    # d'identité ou pour le nom public de l'application :
+    # extra_hosts:
+    #   - "sso.exemple.fr:10.0.0.1"
+
+  server:
+    build:
+      context: .
+      dockerfile: apps/server/Dockerfile
+      args:
+        # `GIT_COMMIT=$(git rev-parse --short HEAD) docker compose build server`
+        # « inconnue » si l'image est construite sans, ce que /health signale alors.
+        GIT_COMMIT: ${GIT_COMMIT:-inconnue}
+        BUILD_DATE: ${BUILD_DATE:-}
+    restart: unless-stopped
+    environment:
+      - PORT=4000
+      - DATABASE_URL=${DATABASE_URL}
+      - READONLY_DATABASE_URL=${READONLY_DATABASE_URL}
+      # Compte de SECOURS (voir /app/seed). Le fichier prime sur la variable : une variable
+      # se lit dans `docker inspect` et dans les journaux de l'orchestrateur, un fichier en
+      # 0600 non — et il se copie tel quel vers une autre installation.
+      - SEED_ADMIN_EMAIL=${SEED_ADMIN_EMAIL:-}
+      - SEED_ADMIN_PASSWORD_FILE=${SEED_ADMIN_PASSWORD_FILE:-}
+      - SEED_ADMIN_PASSWORD=${SEED_ADMIN_PASSWORD:-}
+    env_file: ".env"
+    volumes:
+      # Le seed y lit le mot de passe de secours, ou l'y dépose s'il en engendre un.
+      - ./.secrets:/app/.secrets
+      # PIÈCES JOINTES DES INCIDENTS. Sans ce volume, elles vivent dans le conteneur et
+      # disparaissent au déploiement suivant : des pièces de dossier perdues sans un mot.
+      - uploads-data:/app/uploads
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - slowpoke-network
+    # Résolution forcée, si le DNS du réseau ne répond pas pour le fournisseur
+    # d'identité ou pour le nom public de l'application :
+    # extra_hosts:
+    #   - "sso.exemple.fr:10.0.0.1"
+      
+  postgres:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-slowpoke}
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-slowpoke}",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - postgres-data:/var/lib/postgresql
+    networks:
+      - slowpoke-network
+    env_file: ".env"
+
+  reverse:
+    image: nginx:alpine
+    restart: unless-stopped
+    ports:
+      # Port publié, configurable sans modifier ce fichier (évite un conflit à chaque git pull).
+      # Accepte un port seul (« 8076 ») ou une adresse + port (« 127.0.0.1:8076 »).
+      - "${REVERSE_PUBLISH:-8080}:80"
+    volumes:
+      - ./deploy/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - app
+      - server
+    networks:
+      - slowpoke-network
+
+networks:
+  slowpoke-network:
+    driver: bridge
+
+volumes:
+  postgres-data:
+  uploads-data:

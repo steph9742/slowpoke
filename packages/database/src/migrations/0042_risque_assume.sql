@@ -1,0 +1,1 @@
+ALTER TYPE "public"."incident_resolution" ADD VALUE 'risk_accepted' BEFORE 'false_positive';

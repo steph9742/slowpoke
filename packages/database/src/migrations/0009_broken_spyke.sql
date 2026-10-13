@@ -1,0 +1,3 @@
+ALTER TABLE "phishing_identity" DROP CONSTRAINT "phishing_identity_reply_address_shape_ck";--> statement-breakpoint
+ALTER TABLE "phishing_detail" ALTER COLUMN "concerned_user" SET DATA TYPE uuid;--> statement-breakpoint
+ALTER TABLE "phishing_identity" ADD CONSTRAINT "phishing_identity_reply_address_shape_ck" CHECK ("phishing_identity"."reply_address" is null or "phishing_identity"."reply_address" = '' or "phishing_identity"."reply_address" ~* '^[^@s]+@[^@s]+.[^@s]+$');

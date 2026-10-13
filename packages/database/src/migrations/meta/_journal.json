@@ -1,0 +1,349 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1773751349025,
+      "tag": "0000_known_wither",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1774000080519,
+      "tag": "0001_parallel_speed",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1774264941321,
+      "tag": "0002_mighty_ultragirl",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1774618924965,
+      "tag": "0003_last_aqueduct",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1774625434702,
+      "tag": "0004_query-builder",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1774966742272,
+      "tag": "0005_blue_caretaker",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1775564853138,
+      "tag": "0006_regular_chimera",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1775566159031,
+      "tag": "0007_large_roxanne_simpson",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1776073719404,
+      "tag": "0008_far_anita_blake",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1779091260449,
+      "tag": "0009_broken_spyke",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1779955980102,
+      "tag": "0010_round_retro_girl",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1780301525366,
+      "tag": "0011_bored_blue_blade",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1782311733606,
+      "tag": "0012_rearchitecture_phishing_per_user",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "7",
+      "when": 1782321543668,
+      "tag": "0013_add_status_investigating_and_resolution",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "7",
+      "when": 1782330819959,
+      "tag": "0014_global_push_prefs_user_unique",
+      "breakpoints": true
+    },
+    {
+      "idx": 15,
+      "version": "7",
+      "when": 1782369511562,
+      "tag": "0015_webhooks",
+      "breakpoints": true
+    },
+    {
+      "idx": 16,
+      "version": "7",
+      "when": 1782812162636,
+      "tag": "0016_phishing_action_deleted_and_label",
+      "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "7",
+      "when": 1782821914458,
+      "tag": "0017_detail_arrays_and_drops",
+      "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "7",
+      "when": 1782894318160,
+      "tag": "0018_ddos_target_ports_array",
+      "breakpoints": true
+    },
+    {
+      "idx": 19,
+      "version": "7",
+      "when": 1782913644504,
+      "tag": "0019_push_multi_browser",
+      "breakpoints": true
+    },
+    {
+      "idx": 20,
+      "version": "7",
+      "when": 1783457889038,
+      "tag": "0020_add_incident_external_id",
+      "breakpoints": true
+    },
+    {
+      "idx": 21,
+      "version": "7",
+      "when": 1784566588361,
+      "tag": "0021_intrusion_type_defacement",
+      "breakpoints": true
+    },
+    {
+      "idx": 22,
+      "version": "7",
+      "when": 1785506326857,
+      "tag": "0022_incident_knowledge_dates",
+      "breakpoints": true
+    },
+    {
+      "idx": 23,
+      "version": "7",
+      "when": 1785507510457,
+      "tag": "0023_incident_pilot",
+      "breakpoints": true
+    },
+    {
+      "idx": 24,
+      "version": "7",
+      "when": 1785507725396,
+      "tag": "0024_exclusions",
+      "breakpoints": true
+    },
+    {
+      "idx": 25,
+      "version": "7",
+      "when": 1785508076169,
+      "tag": "0025_perimeter_surveillance_hash",
+      "breakpoints": true
+    },
+    {
+      "idx": 26,
+      "version": "7",
+      "when": 1785700676861,
+      "tag": "0026_exclusion_scope_details",
+      "breakpoints": true
+    },
+    {
+      "idx": 27,
+      "version": "7",
+      "when": 1787665992696,
+      "tag": "0027_app_settings",
+      "breakpoints": true
+    },
+    {
+      "idx": 28,
+      "version": "7",
+      "when": 1787759489977,
+      "tag": "0028_playbooks",
+      "breakpoints": true
+    },
+    {
+      "idx": 29,
+      "version": "7",
+      "when": 1787760581710,
+      "tag": "0029_analyses",
+      "breakpoints": true
+    },
+    {
+      "idx": 30,
+      "version": "7",
+      "when": 1787763043797,
+      "tag": "0030_echeances",
+      "breakpoints": true
+    },
+    {
+      "idx": 31,
+      "version": "7",
+      "when": 1787763498831,
+      "tag": "0031_chat",
+      "breakpoints": true
+    },
+    {
+      "idx": 32,
+      "version": "7",
+      "when": 1787767897591,
+      "tag": "0032_glpi",
+      "breakpoints": true
+    },
+    {
+      "idx": 33,
+      "version": "7",
+      "when": 1787780016025,
+      "tag": "0033_glpi_serie",
+      "breakpoints": true
+    },
+    {
+      "idx": 34,
+      "version": "7",
+      "when": 1787786411053,
+      "tag": "0034_harfanglab",
+      "breakpoints": true
+    },
+    {
+      "idx": 35,
+      "version": "7",
+      "when": 1787816929798,
+      "tag": "0035_harfanglab_tags",
+      "breakpoints": true
+    },
+    {
+      "idx": 36,
+      "version": "7",
+      "when": 1787820486054,
+      "tag": "0036_echeances_depot",
+      "breakpoints": true
+    },
+    {
+      "idx": 37,
+      "version": "7",
+      "when": 1788470720530,
+      "tag": "0037_composante_code",
+      "breakpoints": true
+    },
+    {
+      "idx": 38,
+      "version": "7",
+      "when": 1789419313759,
+      "tag": "0038_e0_archivage_audit",
+      "breakpoints": true
+    },
+    {
+      "idx": 39,
+      "version": "7",
+      "when": 1789420653307,
+      "tag": "0039_e2_enquetes",
+      "breakpoints": true
+    },
+    {
+      "idx": 40,
+      "version": "7",
+      "when": 1789428717849,
+      "tag": "0040_etapes_par_requete",
+      "breakpoints": true
+    },
+    {
+      "idx": 41,
+      "version": "7",
+      "when": 1791316523647,
+      "tag": "0041_revue_listes_blanches",
+      "breakpoints": true
+    },
+    {
+      "idx": 42,
+      "version": "7",
+      "when": 1791318043359,
+      "tag": "0042_risque_assume",
+      "breakpoints": true
+    },
+    {
+      "idx": 43,
+      "version": "7",
+      "when": 1791462818303,
+      "tag": "0043_file_de_triage",
+      "breakpoints": true
+    },
+    {
+      "idx": 44,
+      "version": "7",
+      "when": 1791464071003,
+      "tag": "0044_silences_et_agregats",
+      "breakpoints": true
+    },
+    {
+      "idx": 45,
+      "version": "7",
+      "when": 1791468997693,
+      "tag": "0045_notification_alertes",
+      "breakpoints": true
+    },
+    {
+      "idx": 46,
+      "version": "7",
+      "when": 1791470347492,
+      "tag": "0046_avis_alerte",
+      "breakpoints": true
+    },
+    {
+      "idx": 47,
+      "version": "7",
+      "when": 1791470941081,
+      "tag": "0047_conversation_alerte",
+      "breakpoints": true
+    },
+    {
+      "idx": 48,
+      "version": "7",
+      "when": 1791471980584,
+      "tag": "0048_connaissance_locale",
+      "breakpoints": true
+    }
+  ]
+}

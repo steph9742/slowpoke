@@ -1,0 +1,1 @@
+ALTER TYPE "public"."intrusion_type" ADD VALUE 'defacement' BEFORE 'other';

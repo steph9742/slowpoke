@@ -1,0 +1,51 @@
+# dependencies (bun install)
+node_modules
+
+# output
+out
+dist
+*.tgz
+
+# code coverage
+coverage
+*.lcov
+
+# logs
+logs
+_.log
+report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
+
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# caches
+.eslintcache
+.cache
+*.tsbuildinfo
+
+# IntelliJ based IDEs
+.idea
+
+# Finder (MacOS) folder config
+.DS_Store
+.turbo
+
+.github/agents
+.github/skills
+
+# Documentation locale (valeurs réelles : secrets, URLs, config IdP) — ne jamais committer
+doc/*.local.md
+
+# Secrets locaux (mot de passe du compte de secours). Se copient d'un environnement à
+# l'autre à la main, jamais par le dépôt.
+.secrets/
+
+# Retours de travaux — transmis à la main, hors dépôt
+RETOURS_CLAUDE_CODE.md
+
+# Fichier de règles engendré par Turborepo à chaque installation.
+AGENTS.md

@@ -1,0 +1,1 @@
+ALTER TYPE "public"."global_notification_types" ADD VALUE 'alertes_graves';

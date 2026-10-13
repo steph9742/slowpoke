@@ -1,0 +1,1 @@
+ALTER TABLE "global_push_preferences" ADD CONSTRAINT "global_push_preferences_userId_unique" UNIQUE("userId");

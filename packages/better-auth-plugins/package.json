@@ -1,0 +1,19 @@
+{
+  "name": "@slowpoke/better-auth-plugins",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "1.4.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "better-auth": "1.6.11",
+    "zod": "^4.3.6"
+  },
+  "exports": {
+    "./service-accounts": "./service-accounts/index.ts"
+  }
+}
